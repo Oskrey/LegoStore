@@ -14,18 +14,19 @@ namespace LegoStore
         /// Главная точка входа для приложения.
         /// </summary>
         [STAThread]
+
         static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            SqlConnection connection = new SqlConnection(); //Создание объекта подключения
+           connection =  new SqlConnection(); //Создание объекта подключения
             connection.ConnectionString = @"Data Source=DESKTOP-467M70L\SQLEXPRESS;Initial Catalog=LegoStore;Integrated Security=True;Connect Timeout=5;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";  //Строка подключения
             try
             {
                 connection.Open();      //Опасная команда
                 MessageBox.Show("Связь с сервером установлена");
-                Application.Run(new Form1());
+                Application.Run(new FormMain());
 
             }
             catch (SqlException ex)     //Обработка сбоя при подключении
@@ -48,6 +49,7 @@ namespace LegoStore
             }
 
         }
+        public static SqlConnection connection;
 
     }
 }
