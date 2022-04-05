@@ -26,33 +26,39 @@ namespace LegoStore
 
         private void buttonEnter_Click(object sender, EventArgs e)
         {
-            /*string login = textBoxLogin.Text;
-            string password = textBoxPasswd.Text;
-            SqlCommand command = ClassTotal.connection.CreateCommand();
-            command.CommandType = CommandType.Text;
-            command.CommandText = "select * from [Сотрудники] Where [Почта] = @login and [Пароль] = @password";
-            command.Parameters.Clear();
-            command.Parameters.AddWithValue("@login", login);
-            command.Parameters.AddWithValue("@password", password);
-
-            SqlDataReader reader = command.ExecuteReader();
-            if(reader.HasRows)
+            if (textBoxCaptcha.Text == text)
             {
-                reader.Read();
-                if((bool)reader["Статус"])
+
+                string login = textBoxLogin.Text;
+                string password = textBoxPasswd.Text;
+                SqlCommand command = ClassTotal.connection.CreateCommand();
+                command.CommandType = CommandType.Text;
+                command.CommandText = "select * from [Сотрудники] Where [Почта] = @login and [Пароль] = @password";
+                command.Parameters.Clear();
+                command.Parameters.AddWithValue("@login", login);
+                command.Parameters.AddWithValue("@password", password);
+
+                SqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
                 {
-                    ClassTotal.id = (int)reader["ID_сотрудника"];
-                    ClassTotal.idRole = (int)reader["ID_роли"];
-                    switch (ClassTotal.idRole)
+                    reader.Read();
+                    if ((bool)reader["Статус"])
                     {
-                        
+                        ClassTotal.id = (int)reader["ID_сотрудника"];
+                        ClassTotal.idRole = (int)reader["ID_роли"];
+                        switch (ClassTotal.idRole)
+                        {
+
+                        }
                     }
                 }
-            }*/
-            if (textBoxCaptcha.Text == text)
-                MessageBox.Show("Верно!");
+            }
             else
-                MessageBox.Show("Ошибка!");
+            {
+                MessageBox.Show("Капча введена неверно");
+                pictureBoxCaptcha.Image = CreateImage(pictureBoxCaptcha.Width, pictureBoxCaptcha.Height);
+                textBoxCaptcha.Clear();
+            }
         }
 
         private Bitmap CreateImage(int Width, int Height) //генерация изображения со случайным текстом
