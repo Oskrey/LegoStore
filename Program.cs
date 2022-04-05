@@ -20,11 +20,11 @@ namespace LegoStore
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-           connection =  new SqlConnection(); //Создание объекта подключения
-            connection.ConnectionString = @"Data Source=DESKTOP-467M70L\SQLEXPRESS;Initial Catalog=LegoStore;Integrated Security=True;Connect Timeout=5;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";  //Строка подключения
+           ClassTotal.connection =  new SqlConnection(); //Создание объекта подключения
+            ClassTotal.connection = ClassTotal.connectionString;
             try
             {
-                connection.Open();      //Опасная команда
+                ClassTotal.connection.Open();      //Опасная команда
                 MessageBox.Show("Связь с сервером установлена");
                 Application.Run(new FormMain());
 
@@ -45,11 +45,11 @@ namespace LegoStore
             }
             finally
             {
-                if (connection.State == ConnectionState.Open) connection.Close();
+                if (ClassTotal.connection.State == ConnectionState.Open) ClassTotal.connection.Close();
             }
 
         }
-        public static SqlConnection connection;
+        
 
     }
 }
