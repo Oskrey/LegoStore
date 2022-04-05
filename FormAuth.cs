@@ -48,9 +48,18 @@ namespace LegoStore
                         ClassTotal.idRole = (int)reader["ID_роли"];
                         switch (ClassTotal.idRole)
                         {
-
+                            case (2): MessageBox.Show("Вы админ"); break;
+                            case (3): MessageBox.Show("Вы менеджен"); break;
+                            case (4): MessageBox.Show("Вы сисадмин"); break;
                         }
+                        reader.Close();
+
                     }
+                }
+                else
+                {
+                    MessageBox.Show("Логин и/или пароль введены неверно");
+                    reader.Close();
                 }
             }
             else
@@ -120,6 +129,15 @@ namespace LegoStore
         private void buttonRefresh_Click(object sender, EventArgs e)
         {
             pictureBoxCaptcha.Image = CreateImage(pictureBoxCaptcha.Width, pictureBoxCaptcha.Height);
+        }
+
+        private void buttonLook_Click(object sender, EventArgs e)
+        {
+            if(textBoxPasswd.UseSystemPasswordChar == true)
+            textBoxPasswd.UseSystemPasswordChar = false;
+            else
+            textBoxPasswd.UseSystemPasswordChar = true;
+
         }
     }
 }

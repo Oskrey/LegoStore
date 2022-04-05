@@ -26,8 +26,9 @@ namespace LegoStore
         private void buttonlogin_Click(object sender, EventArgs e)
         {
             FormAuth form_auth = new FormAuth();
-            this.Hide();
+            Hide();
             form_auth.ShowDialog();
+            Show();
         }
     }
 }

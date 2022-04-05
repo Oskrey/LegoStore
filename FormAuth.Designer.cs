@@ -47,17 +47,18 @@ namespace LegoStore
             // 
             this.buttonLook.BackgroundImage = global::LegoStore.Properties.Resources.Glaz;
             this.buttonLook.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonLook.Location = new System.Drawing.Point(179, 118);
+            this.buttonLook.Location = new System.Drawing.Point(196, 119);
             this.buttonLook.Name = "buttonLook";
-            this.buttonLook.Size = new System.Drawing.Size(43, 23);
+            this.buttonLook.Size = new System.Drawing.Size(30, 22);
             this.buttonLook.TabIndex = 19;
             this.buttonLook.UseVisualStyleBackColor = true;
+            this.buttonLook.Click += new System.EventHandler(this.buttonLook_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label4.Location = new System.Drawing.Point(17, 13);
+            this.label4.Location = new System.Drawing.Point(4, 9);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(223, 17);
             this.label4.TabIndex = 18;
@@ -66,7 +67,7 @@ namespace LegoStore
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(18, 102);
+            this.label2.Location = new System.Drawing.Point(9, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(45, 13);
             this.label2.TabIndex = 16;
@@ -75,7 +76,7 @@ namespace LegoStore
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(18, 55);
+            this.label1.Location = new System.Drawing.Point(9, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 15;
@@ -83,9 +84,9 @@ namespace LegoStore
             // 
             // buttonEnter
             // 
-            this.buttonEnter.Location = new System.Drawing.Point(39, 263);
+            this.buttonEnter.Location = new System.Drawing.Point(12, 263);
             this.buttonEnter.Name = "buttonEnter";
-            this.buttonEnter.Size = new System.Drawing.Size(161, 23);
+            this.buttonEnter.Size = new System.Drawing.Size(214, 23);
             this.buttonEnter.TabIndex = 13;
             this.buttonEnter.Text = "ВОЙТИ";
             this.buttonEnter.UseVisualStyleBackColor = true;
@@ -93,42 +94,42 @@ namespace LegoStore
             // 
             // textBoxPasswd
             // 
-            this.textBoxPasswd.Location = new System.Drawing.Point(39, 119);
+            this.textBoxPasswd.Location = new System.Drawing.Point(12, 119);
             this.textBoxPasswd.MaxLength = 20;
             this.textBoxPasswd.Name = "textBoxPasswd";
-            this.textBoxPasswd.Size = new System.Drawing.Size(135, 20);
+            this.textBoxPasswd.Size = new System.Drawing.Size(178, 20);
             this.textBoxPasswd.TabIndex = 12;
             this.textBoxPasswd.UseSystemPasswordChar = true;
             // 
             // textBoxLogin
             // 
-            this.textBoxLogin.Location = new System.Drawing.Point(39, 72);
+            this.textBoxLogin.Location = new System.Drawing.Point(12, 72);
             this.textBoxLogin.MaxLength = 30;
             this.textBoxLogin.Name = "textBoxLogin";
-            this.textBoxLogin.Size = new System.Drawing.Size(184, 20);
+            this.textBoxLogin.Size = new System.Drawing.Size(215, 20);
             this.textBoxLogin.TabIndex = 11;
             // 
             // pictureBoxCaptcha
             // 
-            this.pictureBoxCaptcha.Location = new System.Drawing.Point(39, 146);
-            this.pictureBoxCaptcha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pictureBoxCaptcha.Location = new System.Drawing.Point(12, 146);
+            this.pictureBoxCaptcha.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxCaptcha.Name = "pictureBoxCaptcha";
-            this.pictureBoxCaptcha.Size = new System.Drawing.Size(183, 88);
+            this.pictureBoxCaptcha.Size = new System.Drawing.Size(214, 88);
             this.pictureBoxCaptcha.TabIndex = 20;
             this.pictureBoxCaptcha.TabStop = false;
             // 
             // textBoxCaptcha
             // 
-            this.textBoxCaptcha.Location = new System.Drawing.Point(72, 239);
-            this.textBoxCaptcha.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.textBoxCaptcha.Location = new System.Drawing.Point(12, 239);
+            this.textBoxCaptcha.Margin = new System.Windows.Forms.Padding(2);
             this.textBoxCaptcha.Name = "textBoxCaptcha";
-            this.textBoxCaptcha.Size = new System.Drawing.Size(76, 20);
+            this.textBoxCaptcha.Size = new System.Drawing.Size(140, 20);
             this.textBoxCaptcha.TabIndex = 21;
             // 
             // buttonRefresh
             // 
-            this.buttonRefresh.Location = new System.Drawing.Point(152, 239);
-            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.buttonRefresh.Location = new System.Drawing.Point(156, 239);
+            this.buttonRefresh.Margin = new System.Windows.Forms.Padding(2);
             this.buttonRefresh.Name = "buttonRefresh";
             this.buttonRefresh.Size = new System.Drawing.Size(70, 19);
             this.buttonRefresh.TabIndex = 22;
@@ -140,7 +141,7 @@ namespace LegoStore
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label3.Location = new System.Drawing.Point(91, 37);
+            this.label3.Location = new System.Drawing.Point(82, 37);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(64, 15);
             this.label3.TabIndex = 23;
@@ -150,7 +151,7 @@ namespace LegoStore
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(239, 314);
+            this.ClientSize = new System.Drawing.Size(239, 298);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.buttonRefresh);
             this.Controls.Add(this.textBoxCaptcha);
