@@ -20,8 +20,8 @@ namespace LegoStore
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-           ClassTotal.connection =  new SqlConnection(); //Создание объекта подключения
-            ClassTotal.connection = ClassTotal.connectionString;
+             ClassTotal.connection =  new SqlConnection(); //Создание объекта подключения
+            ClassTotal.connection.ConnectionString = ClassTotal.connectionString;
             try
             {
                 ClassTotal.connection.Open();      //Опасная команда
