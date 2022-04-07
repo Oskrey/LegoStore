@@ -29,6 +29,7 @@ namespace LegoStore
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormMain));
             this.buttonlogin = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
@@ -46,7 +47,7 @@ namespace LegoStore
             this.buttonlogin.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.buttonlogin.Location = new System.Drawing.Point(132, 166);
             this.buttonlogin.Name = "buttonlogin";
-            this.buttonlogin.Size = new System.Drawing.Size(327, 40);
+            this.buttonlogin.Size = new System.Drawing.Size(326, 40);
             this.buttonlogin.TabIndex = 2;
             this.buttonlogin.Text = "Вход в систему";
             this.buttonlogin.UseVisualStyleBackColor = true;
@@ -61,7 +62,7 @@ namespace LegoStore
             this.button3.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button3.Location = new System.Drawing.Point(132, 120);
             this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(327, 40);
+            this.button3.Size = new System.Drawing.Size(326, 40);
             this.button3.TabIndex = 2;
             this.button3.Text = "button2";
             this.button3.UseVisualStyleBackColor = true;
@@ -75,7 +76,7 @@ namespace LegoStore
             this.button2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.button2.Location = new System.Drawing.Point(132, 78);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(327, 36);
+            this.button2.Size = new System.Drawing.Size(326, 36);
             this.button2.TabIndex = 2;
             this.button2.Text = "button2";
             this.button2.UseVisualStyleBackColor = true;
@@ -87,9 +88,9 @@ namespace LegoStore
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.AutoSize = true;
             this.button1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.button1.Location = new System.Drawing.Point(465, 3);
+            this.button1.Location = new System.Drawing.Point(464, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(97, 69);
+            this.button1.Size = new System.Drawing.Size(98, 69);
             this.button1.TabIndex = 1;
             this.button1.Text = "button1";
             this.button1.UseVisualStyleBackColor = true;
@@ -100,7 +101,7 @@ namespace LegoStore
             this.tableLayoutPanel1.ColumnCount = 3;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28.05755F));
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 71.94244F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 103F));
             this.tableLayoutPanel1.Controls.Add(this.button1, 2, 0);
             this.tableLayoutPanel1.Controls.Add(this.button2, 1, 1);
             this.tableLayoutPanel1.Controls.Add(this.button3, 1, 2);
@@ -123,6 +124,7 @@ namespace LegoStore
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(565, 301);
             this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FormMain";
             this.Text = "Главная страница";
             this.Load += new System.EventHandler(this.Form1_Load);
