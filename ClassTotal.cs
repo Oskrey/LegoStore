@@ -13,5 +13,6 @@ namespace LegoStore
         public static SqlConnection connection;
         public static int id;
         public static int idRole;
+        public enum Mode { Просмотр, Редактирование, Добавление};
     }
 }
