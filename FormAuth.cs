@@ -50,9 +50,17 @@ namespace LegoStore
                             ClassTotal.id = (int)reader["ID сотрудника"];
                             ClassTotal.idRole = (int)reader["ID роли"];
                             reader.Close();
-                            FormWork formWork = new FormWork();
-                            formWork.ShowDialog();
-                            
+                            switch (ClassTotal.idRole)
+                            {
+                                case (2):
+                                    break;
+                                case (3):
+                                    break;
+                                case (4):
+                                    FormSysAdmin formSysAdmin = new FormSysAdmin();
+                                    formSysAdmin.ShowDialog();
+                                    break;
+                            }
 
                         }
                     }

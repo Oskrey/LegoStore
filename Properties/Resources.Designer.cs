@@ -69,5 +69,15 @@ namespace LegoStore.Properties {
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
+        
+        /// <summary>
+        ///   Поиск локализованного ресурса типа System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap LEGO_logo_700x700 {
+            get {
+                object obj = ResourceManager.GetObject("LEGO_logo-700x700", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

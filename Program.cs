@@ -25,7 +25,6 @@ namespace LegoStore
             try
             {
                 ClassTotal.connection.Open();      //Опасная команда
-                MessageBox.Show("Связь с сервером установлена");
                 Application.Run(new FormMain());
 
             }
