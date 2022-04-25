@@ -33,22 +33,22 @@
             this.buttonРегистрация = new System.Windows.Forms.Button();
             this.buttonПодробно = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonПоиск = new System.Windows.Forms.Button();
             this.buttonСтатус = new System.Windows.Forms.Button();
+            this.comboBoxСтатус = new System.Windows.Forms.ComboBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.buttonНазад = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.comboBoxСтатус = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.buttonIco = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonРедактировать
@@ -82,6 +82,7 @@
             this.buttonРегистрация.TabIndex = 2;
             this.buttonРегистрация.Text = "Регистрация";
             this.buttonРегистрация.UseVisualStyleBackColor = true;
+            this.buttonРегистрация.Click += new System.EventHandler(this.buttonРегистрация_Click);
             // 
             // buttonПодробно
             // 
@@ -113,25 +114,13 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(804, 46);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.AllowUserToAddRows = false;
-            this.dataGridView1.AllowUserToDeleteRows = false;
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridView1.Location = new System.Drawing.Point(0, 89);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(804, 316);
-            this.dataGridView1.TabIndex = 5;
-            this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
-            // 
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 1;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 0, 0);
-            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
@@ -169,6 +158,7 @@
             this.buttonПоиск.TabIndex = 0;
             this.buttonПоиск.Text = "Поиск по фамилии";
             this.buttonПоиск.UseVisualStyleBackColor = true;
+            this.buttonПоиск.Click += new System.EventHandler(this.buttonПоиск_Click);
             // 
             // buttonСтатус
             // 
@@ -180,6 +170,24 @@
             this.buttonСтатус.Text = "Статус";
             this.buttonСтатус.UseVisualStyleBackColor = true;
             this.buttonСтатус.Click += new System.EventHandler(this.buttonСтатус_Click);
+            // 
+            // comboBoxСтатус
+            // 
+            this.comboBoxСтатус.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.comboBoxСтатус.FormattingEnabled = true;
+            this.comboBoxСтатус.Location = new System.Drawing.Point(202, 3);
+            this.comboBoxСтатус.Name = "comboBoxСтатус";
+            this.comboBoxСтатус.Size = new System.Drawing.Size(193, 21);
+            this.comboBoxСтатус.TabIndex = 4;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox1.Location = new System.Drawing.Point(600, 3);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(195, 20);
+            this.textBox1.TabIndex = 5;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // tableLayoutPanel3
             // 
@@ -208,8 +216,9 @@
             this.buttonНазад.Name = "buttonНазад";
             this.buttonНазад.Size = new System.Drawing.Size(195, 35);
             this.buttonНазад.TabIndex = 0;
-            this.buttonНазад.Text = "Назад";
+            this.buttonНазад.Text = "Выйти";
             this.buttonНазад.UseVisualStyleBackColor = true;
+            this.buttonНазад.Click += new System.EventHandler(this.buttonНазад_Click);
             // 
             // label1
             // 
@@ -223,24 +232,6 @@
             this.label1.Text = "Список всех сотрудников";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // comboBoxСтатус
-            // 
-            this.comboBoxСтатус.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.comboBoxСтатус.FormattingEnabled = true;
-            this.comboBoxСтатус.Location = new System.Drawing.Point(202, 3);
-            this.comboBoxСтатус.Name = "comboBoxСтатус";
-            this.comboBoxСтатус.Size = new System.Drawing.Size(193, 21);
-            this.comboBoxСтатус.TabIndex = 4;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox1.Location = new System.Drawing.Point(600, 3);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(195, 20);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
-            // 
             // buttonIco
             // 
             this.buttonIco.AutoSize = true;
@@ -253,27 +244,47 @@
             this.buttonIco.TabIndex = 3;
             this.buttonIco.UseVisualStyleBackColor = true;
             // 
+            // dataGridView1
+            // 
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.AllowUserToOrderColumns = true;
+            this.dataGridView1.AllowUserToResizeColumns = false;
+            this.dataGridView1.AllowUserToResizeRows = false;
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.ColumnHeader;
+            this.dataGridView1.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllHeaders;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dataGridView1.Location = new System.Drawing.Point(0, 89);
+            this.dataGridView1.MinimumSize = new System.Drawing.Size(804, 316);
+            this.dataGridView1.MultiSelect = false;
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridView1.Size = new System.Drawing.Size(804, 316);
+            this.dataGridView1.TabIndex = 7;
+            // 
             // FormSysAdmin
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(804, 451);
-            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.tableLayoutPanel2);
             this.Controls.Add(this.tableLayoutPanel1);
             this.MinimumSize = new System.Drawing.Size(820, 490);
             this.Name = "FormSysAdmin";
             this.Text = "FormSysAdmin";
             this.Load += new System.EventHandler(this.FormSysAdmin_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -286,7 +297,6 @@
         private System.Windows.Forms.Button buttonРегистрация;
         private System.Windows.Forms.Button buttonПодробно;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button buttonПоиск;
@@ -297,5 +307,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox comboBoxСтатус;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
     }
 }

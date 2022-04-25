@@ -22,6 +22,7 @@ namespace LegoStore
         private void FormAuth_Load(object sender, EventArgs e)
         {
             pictureBoxCaptcha.Image = CreateImage(pictureBoxCaptcha.Width, pictureBoxCaptcha.Height);
+
         }
         int w = 2;
 
@@ -58,10 +59,17 @@ namespace LegoStore
                                     break;
                                 case (4):
                                     FormSysAdmin formSysAdmin = new FormSysAdmin();
+                                    Hide();
                                     formSysAdmin.ShowDialog();
+                                    Close();
                                     break;
                             }
 
+                        }
+                        else
+                        {
+                            reader.Close();
+                            MessageBox.Show("Вы заблокированы в системе");
                         }
                     }
                     else
@@ -158,7 +166,7 @@ namespace LegoStore
                 for (int j = 0; j < Height; ++j)
                     if (rnd.Next() % 20 == 0)
                         result.SetPixel(i, j, Color.White);
-
+            textBoxCaptcha.Text = text;
             return result;
         }
 

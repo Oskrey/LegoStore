@@ -93,6 +93,7 @@ namespace LegoStore
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(178, 20);
             this.textBoxPassword.TabIndex = 1;
+            this.textBoxPassword.Text = "SysAdmin";
             this.textBoxPassword.UseSystemPasswordChar = true;
             // 
             // textBoxLogin
@@ -102,6 +103,7 @@ namespace LegoStore
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(215, 20);
             this.textBoxLogin.TabIndex = 0;
+            this.textBoxLogin.Text = "SysAdmin";
             // 
             // textBoxCaptcha
             // 

@@ -72,7 +72,8 @@ namespace LegoStore
         {
             DataSet ds = new DataSet();
             SqlDataAdapter da = new SqlDataAdapter();
-            da.SelectCommand = new SqlCommand("select * from [Сотрудники]", ClassTotal.connection);
+            da.SelectCommand = new SqlCommand("select [ID сотрудника], [Название роли], Фамилия, Имя, Отчество, Почта, Статус " +
+                "from Сотрудники join Роли on Сотрудники.[ID роли] = Роли.[ID роли]", ClassTotal.connection);
             da.Fill(ds, "Name");
             dataGridView1.DataSource = ds.Tables["Name"];
             dataGridView1.DataSource = ds.Tables[0];
@@ -80,6 +81,24 @@ namespace LegoStore
         private void FormSysAdmin_Load(object sender, EventArgs e)
         {
             refresh();
+        }
+
+        private void buttonПоиск_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonРегистрация_Click(object sender, EventArgs e)
+        {
+            FormUser formUser = new FormUser(-1,ClassTotal.Mode.Добавление);
+            formUser.ShowDialog();
+            refresh();
+
+        }
+
+        private void buttonНазад_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }
