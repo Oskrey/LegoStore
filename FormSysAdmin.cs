@@ -56,7 +56,7 @@ namespace LegoStore
             if (index >= 0)
             {
                 int id = (int)dataGridView1.Rows[index].Cells[0].Value;
-                bool active = (bool)dataGridView1.Rows[index].Cells[8].Value;
+                bool active = (bool)dataGridView1.Rows[index].Cells[dataGridView1.ColumnCount].Value;
                 int костыль;
                 if (active)
                     костыль = 0;

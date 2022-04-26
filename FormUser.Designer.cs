@@ -310,7 +310,7 @@
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(179, 44);
             this.label8.TabIndex = 14;
-            this.label8.Text = "Роль";
+            this.label8.Text = "Статус";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label9
@@ -322,7 +322,7 @@
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(179, 37);
             this.label9.TabIndex = 15;
-            this.label9.Text = "Статус";
+            this.label9.Text = "Роль";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // checkBox1

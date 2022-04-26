@@ -34,8 +34,22 @@ namespace LegoStore
 
         private void FormUser_Load(object sender, EventArgs e)
         {
-            if(mode == ClassTotal.Mode.Редактирование)
+            comboBoxРоль.Items.Clear();
+            SqlCommand command = ClassTotal.connection.CreateCommand();
+            command.CommandText = " select [ID роли], [Название роли] from Роли";
+            SqlDataReader r = command.ExecuteReader();
+            if (r.HasRows)
             {
+                while (r.Read())
+                {
+                    comboBoxРоль.Items.Add(r[0] + ", " + r[1]);
+                }
+            }
+            r.Close();
+            if (mode == ClassTotal.Mode.Редактирование)
+            {
+                
+
                 SqlCommand cmd = ClassTotal.connection.CreateCommand();
                 cmd.CommandText = "select * from [Сотрудники] where [ID сотрудника] = "+id;
                 SqlDataReader reader = cmd.ExecuteReader();
@@ -46,39 +60,39 @@ namespace LegoStore
                 textBoxФамилия.Text = reader["Фамилия"].ToString();
                 textBoxОтчество.Text = reader["Отчество"].ToString();
                 textBoxТелефон.Text = reader["Контактный телефон"].ToString() ;
-                if((bool)reader["Статус"])
+                int idРоли = (int)reader["ID роли"];
+
+
+                if ((bool)reader["Статус"])
                     checkBox1.Checked = true;
                 else checkBox1.Checked = false;
                 //Почему
                 if (!reader.IsDBNull(reader.GetOrdinal("Фото")))  //Пусто
                 {
-                    imgBytes = (byte[])reader["Фото"];   //Взять фото из БД
+                    imgBytes = (byte[])reader.GetSqlBinary(reader.GetOrdinal("Фото"));   //Взять фото из БД
+                    //imgBytes = (byte[])reader["Фото"];   //Взять фото из БД
                     stream = new MemoryStream(imgBytes);    //Преобразования
-                    pictureBoxАватар.Image = Image.FromStream(stream);
+                    bit = Image.FromStream(stream);
+                    pictureBoxАватар.Image = bit;
                 }
                 reader.Close();
 
+                SqlCommand com = ClassTotal.connection.CreateCommand();
+                com.CommandText = " select [ID роли], [Название роли] from Роли where [ID роли]=" + idРоли;
+                SqlDataReader read = com.ExecuteReader();
+                read.Read();
+                comboBoxРоль.Text = (read[0] + ", " + read[1]).ToString();
+                read.Close();
 
 
             }
-            bit = pictureBoxАватар.Image;
-            stream = new MemoryStream();
-            bit.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
-            imgBytes = stream.ToArray();
+            //bit = pictureBoxАватар.Image;
+            //stream = new MemoryStream();
+            //bit.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+            //imgBytes = stream.ToArray();
 
             
-                comboBoxРоль.Items.Clear();
-                SqlCommand command = ClassTotal.connection.CreateCommand();
-                command.CommandText = " select [ID роли], [Название роли] from Роли";
-                SqlDataReader r = command.ExecuteReader();
-                if (r.HasRows)
-                {
-                    while (r.Read())
-                    {
-                        comboBoxРоль.Items.Add(r[0] + ", " + r[1]);
-                    }
-                }
-                r.Close();
+                
             
 
         }
@@ -154,7 +168,7 @@ namespace LegoStore
             {
                 case ClassTotal.Mode.Добавление:
                     
-                    command.CommandText = "INSERT INTO [Сотрудники] VALUES (" + comboBoxРоль.Text.Split(',')[0]+ ",'" + фамилия + "', '" + имя+ "', '" + textBoxОтчество.Text+ "', '" + почта+ "', '"+пароль+"', '" + телефон + "', " + temp + ", '"+dateTimePickerДатаУстройства.Value.Date+"', '"+ imgBytes+"')" ;
+                    command.CommandText = "INSERT INTO [Сотрудники] VALUES (" + comboBoxРоль.Text.Split(',')[0]+ ",'" + фамилия + "', '" + имя+ "', '" + textBoxОтчество.Text+ "', '" + почта+ "', '"+пароль+"', '" + телефон + "', " + temp + ", '"+dateTimePickerДатаУстройства.Value.Date+"', "+ imgBytes+")" ;
                     
                     break;
 
@@ -172,7 +186,7 @@ namespace LegoStore
                     {
                         r.Close();
 
-                        command.CommandText = "Update[Сотрудники] set [ID роли] = " + comboBoxРоль.Text.Split(',')[0] + ",[Фамилия] = '" + фамилия + "', [Имя] = '" + имя + "', [Отчество] ='" + textBoxОтчество.Text + "', [Почта] = '" + почта + "', [Пароль] = '" + пароль + "', [Контактный телефон] = '" + телефон + "', [Статус] = " + temp + ",[Дата устройства] '" + dateTimePickerДатаУстройства.Value.Date + "',[Фото] = '" + imgBytes + "')" +
+                        command.CommandText = "Update[Сотрудники] set [ID роли] = " + comboBoxРоль.Text.Split(',')[0] + ",[Фамилия] = '" + фамилия + "', [Имя] = '" + имя + "', [Отчество] ='" + textBoxОтчество.Text + "', [Почта] = '" + почта + "', [Пароль] = '" + пароль + "', [Контактный телефон] = '" + телефон + "', [Статус] = " + temp + ",[Дата устройства] '" + dateTimePickerДатаУстройства.Value.Date + "',[Фото] = " + imgBytes + ")" +
                         "where ID сотрудника = " + id;
                     }
                     break;
@@ -205,7 +219,7 @@ namespace LegoStore
                 pictureBoxАватар.Image = bit;
                 //2. Из битового образа перенести с массив бит
                 stream = new MemoryStream();
-                bit.Save(stream, System.Drawing.Imaging.ImageFormat.Jpeg);
+                bit.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
                 imgBytes = stream.ToArray();
             }
 
