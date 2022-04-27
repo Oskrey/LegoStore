@@ -86,14 +86,14 @@ namespace LegoStore
 
 
             }
-            //bit = pictureBoxАватар.Image;
-            //stream = new MemoryStream();
-            //bit.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
-            //imgBytes = stream.ToArray();
+            bit = pictureBoxАватар.Image;
+            stream = new MemoryStream();
+            bit.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+            imgBytes = stream.ToArray();
 
-            
-                
-            
+
+
+
 
         }
 
@@ -167,17 +167,22 @@ namespace LegoStore
             switch (mode)
             {
                 case ClassTotal.Mode.Добавление:
+                    command.CommandText = "INSERT INTO [Сотрудники] VALUES (" + comboBoxРоль.Text.Split(',')[0]+ ",'" + фамилия + "', '" + имя+ "', '" + textBoxОтчество.Text+ "', '" + почта+ "', '"+пароль+"', '" + телефон + "', " + temp + ", '"+dateTimePickerДатаУстройства.Value.Date+"', @pic)" ;
                     
-                    command.CommandText = "INSERT INTO [Сотрудники] VALUES (" + comboBoxРоль.Text.Split(',')[0]+ ",'" + фамилия + "', '" + имя+ "', '" + textBoxОтчество.Text+ "', '" + почта+ "', '"+пароль+"', '" + телефон + "', " + temp + ", '"+dateTimePickerДатаУстройства.Value.Date+"', "+ imgBytes+")" ;
-                    
+                    command.Parameters.AddWithValue("@pic", imgBytes);
+
                     break;
 
 
                 case ClassTotal.Mode.Редактирование:
+                    bit = pictureBoxАватар.Image;
+                    stream = new MemoryStream();
+                    bit.Save(stream, System.Drawing.Imaging.ImageFormat.Png);
+                    imgBytes = stream.ToArray();
                     SqlCommand sqlCommand = ClassTotal.connection.CreateCommand();
                     sqlCommand.CommandText = " select * from Сотрудники where Почта = '"+почта+"' and  not[ID сотрудника] = "+id;
                     SqlDataReader r = sqlCommand.ExecuteReader();
-                    if (r.IsDBNull(r.GetOrdinal("Почта")))  //Пусто
+                    if (!r.IsDBNull(r.GetOrdinal("Почта")))  //Пусто
                     {
                         r.Close();
                         MessageBox.Show("Эта почта уже занята");
@@ -186,8 +191,10 @@ namespace LegoStore
                     {
                         r.Close();
 
-                        command.CommandText = "Update[Сотрудники] set [ID роли] = " + comboBoxРоль.Text.Split(',')[0] + ",[Фамилия] = '" + фамилия + "', [Имя] = '" + имя + "', [Отчество] ='" + textBoxОтчество.Text + "', [Почта] = '" + почта + "', [Пароль] = '" + пароль + "', [Контактный телефон] = '" + телефон + "', [Статус] = " + temp + ",[Дата устройства] '" + dateTimePickerДатаУстройства.Value.Date + "',[Фото] = " + imgBytes + ")" +
+                        command.CommandText = "Update[Сотрудники] set [ID роли] = " + comboBoxРоль.Text.Split(',')[0] + ",[Фамилия] = '" + фамилия + "', [Имя] = '" + имя + "', [Отчество] ='" + textBoxОтчество.Text + "', [Почта] = '" + почта + "', [Пароль] = '" + пароль + "', [Контактный телефон] = '" + телефон + "', [Статус] = " + temp + ",[Дата устройства] '" + dateTimePickerДатаУстройства.Value.Date + "',[Фото] = @pic)" +
                         "where ID сотрудника = " + id;
+                        command.Parameters.AddWithValue("@pic", imgBytes);
+
                     }
                     break;
             }

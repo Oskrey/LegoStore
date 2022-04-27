@@ -108,7 +108,8 @@
             // openFileDialogФото
             // 
             this.openFileDialogФото.FileName = "pictures";
-            this.openFileDialogФото.Filter = "Pictures1 (*.jpg)|*.jpg|Pictures2 (*.png)|*png";
+            this.openFileDialogФото.Filter = "(*.BMP;*.JPG;*.GIF;*.PNG;*.JPEG)|*.BMP;*.JPG;*.GIF;*.PNG;*.JPEG|All files (*.*)|*" +
+    ".*";
             // 
             // tableLayoutPanel3
             // 
